@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration & Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Registration Form -->
+        <div class="form-box" id="register-box">
+            <h2>Register</h2>
+            <form action="/register" method="POST">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p class="toggle-link">Already have an account? <a href="#login-box" onclick="toggleForms()">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-box" id="login-box" style="display: none;">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="toggle-link">Don't have an account? <a href="#register-box" onclick="toggleForms()">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const registerBox = document.getElementById('register-box');
+            const loginBox = document.getElementById('login-box');
+            if (registerBox.style.display === 'none') {
+                registerBox.style.display = 'block';
+                loginBox.style.display = 'none';
+            } else {
+                registerBox.style.display = 'none';
+                loginBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
